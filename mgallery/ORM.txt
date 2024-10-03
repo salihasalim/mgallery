@@ -1,0 +1,92 @@
+==============ORM QUERY FOR CREATING A NEW OBJECT=========
+
+
+>SYNTAX
+
+
+>modelname.objects.create(field1="value",filed2="value",field3="value")
+
+
+>Movies.objects.create(title='avesham",
+                        genre='action",
+                        language="malayalam",
+                        year="2024",
+                        run_time=150,
+                        director="abc")
+
+
+
+
+==========ORM Query  for  fetching all records=======
+
+
+>variable=modelname.objects.all()
+
+
+
+
+
+=========ORM QUERY FOR FETCHING A SPECIFIC RECORD=====
+
+
+>variable=modelname.objects.get(id=1)
+
+
+
+
+
+=========ORM QUERY FOR filtering record===========
+
+>variable_name=modelname.objects.filter(field="value")
+
+
+
+>comedy_movies=Movies.objects.filter(genre="comedy")
+
+
+
+
+
+==========ORM QUERY FOR updsting a field============
+
+
+>modelname.objects.filter(id=value).update(update field=value,....)
+
+
+>Movies.objects.filter(id=2).update(run_time=180,year=2020)
+
+
+
+
+=======ORM QUERY FOR deleting a record=======
+>modelname.objects.filter(id=value).delete()
+
+
+here we can use getin the field of filter
+
+
+
+
+field lookups
+
+
+
+>  = __gt 
+
+<  = __lt
+
+
+>=  = __gte 
+
+<=   =  __lte 
+
+
+
+
+
+
+
+>Movie.objects.filter(run_time__gte=150)
+
+
+>Movie.objects.filter(run_time__gte=150,run_time__lte=200)

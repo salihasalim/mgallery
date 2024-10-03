@@ -1,0 +1,81 @@
+form django.db import models
+
+class Emp(models.Model):
+
+     name=models.CharField(MAX_LENGTH=200,null=False)
+
+     position=models.CharField(MAX_LENGTH=200)
+
+
+     office=models.CharField(MAX_LENGTH=200)
+
+     age=models.PositiveIntegerField()
+
+     start_date=models.DateField()
+
+     salary=models.PositiveIntegerField()
+
+
+
+
+
+q1.query for add new records
+
+Emplyee.objects.create(name="saliha",
+                       position="qa",
+                       age=23,
+                       office="new york",
+                       start_date=Date(14=-06-24),
+                       salary=50000,
+                                   )
+
+q2.query for  updating an employee
+Employee.objects.filter(id=1).update(salary=60000,office="malta")
+
+q3.query for filtering emplyees with age and salary
+
+qs=Employee.objects.filter(age=40,salary=50000)
+
+q4.query for deleting employee record
+
+employee.objects.filter(id=1).delete
+
+q5.employee with salary > 25000
+
+Employee.objects.filter(salary__gte=25000)
+
+q6.filtering employees with office tokyo
+
+Employee.objects.filter(office="tokyo")
+
+q7 query for fetching all records
+Employee.objects.all()
+
+q8.employees with salary in range of 25k to 50 k
+
+Employee.objects.filter(salary++gte=25000,salary__lte=50000)
+
+q9.sort employee wrt salary order by asc
+
+
+qs=Employee.objects.all().order_by("salary")   #asc
+
+qs=Employee.objects.all().order_by("-salary")    #desc
+
+qs=Employee.objects.all().order_by("-age")
+
+
+
+q9.employee with highest salary
+
+max_salary=Employee.objects.all().values("salary").aggregate(sal=max("salary"))
+
+
+ivde salry enna oru column mathram select cheythathi so values.salary koduthu then aggrgate fn use cheythu
+
+
+q11
+
+
+office_summary=Employee.objects.all().values("office").annotate(cnt=count("office"))
+
